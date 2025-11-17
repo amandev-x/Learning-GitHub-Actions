@@ -1,0 +1,25 @@
+# Name of the Workflow
+name: My first worfkflow
+
+# Triggering the workflow based on pushing into main branch.
+on: 
+  push:
+    branches:
+      - main
+  # Using the (workflow_dispatch) allows us to enable the trigger manually.
+  workflow_dispatch:
+jobs:
+  MyFirstJob:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World 👋"
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+      - name: List files in the repository
+        run: |
+          echo "The repository ${{ github.repository }} contains the following files:"
+          tree
+    
+ 
+    
+  
